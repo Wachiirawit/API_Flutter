@@ -13,8 +13,8 @@ class MyHomePage extends ConsumerWidget {
     final _data = ref.watch(userDataProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('riverpod'),
-        backgroundColor: Colors.blueAccent,
+        title: const Text('User_API'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: _data.when(
           data: (_data) {

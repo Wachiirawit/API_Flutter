@@ -9,9 +9,7 @@ class UserModel {
   final String lastname;
   final String avatar;
 
-//เขียน รับ required แบบสั้น
-  // UserModel(this.id, this.email, this.firstname, this.lastname, this.avatar);
-
+//เขียน รับ required 
   UserModel(
       {required this.id,
       required this.email,
