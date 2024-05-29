@@ -13,7 +13,7 @@ class UserApiPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('User_API'),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.blue[300],
       ),
       body: _data.when(
           data: (_data) {

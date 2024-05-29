@@ -1,36 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api/dataprovider/data_provider.dart';
-import 'package:flutter_api/models/crypto_model.dart';
-import 'package:flutter_api/screens/Crypto_Detail.screen.dart';
+import 'package:flutter_api/models/article_model.dart';
+import 'package:flutter_api/screens/Article_detail.screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CryptoApiPage extends ConsumerWidget {
-  const CryptoApiPage({super.key});
+class ArticleApiPage extends ConsumerWidget {
+  const ArticleApiPage({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
-    final _datacrypto = ref.watch(cryptoDataProdvider);
+    final _article = ref.watch(articleDataProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Crypto_API'),
-        backgroundColor: Colors.blue[300],
+        title: const Text('Article_API'),
+        backgroundColor: Colors.blue[400],
       ),
-      body: _datacrypto.when(
-          data: (_datacrypto) {
-            List<CryptoModel> cryptoList = _datacrypto.map((e) => e).toList();
+      body: _article.when(
+          data: (_article) {
+            List<ArticleModel> articleList = _article.map((e) => e).toList();
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Expanded(
                       child: ListView.builder(
-                          itemCount: cryptoList.length,
+                          itemCount: articleList.length,
                           itemBuilder: (_, index) {
                             return InkWell(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => CryptoDetailScreen(
-                                    e: cryptoList[index],
+                                  builder: (context) => ArticleDetailScreen(
+                                    e: articleList[index],
                                     ),
                                     ),
                               ),
@@ -43,17 +43,19 @@ class CryptoApiPage extends ConsumerWidget {
                               child: ListTile(
                                 
                                 title: Text(
-                                  cryptoList[index].name,
+                                  articleList[index].title,
                                   style: const TextStyle(color: Colors.white),
                                 ),
 
                                 
               
-                                subtitle: Text("${cryptoList[index].price}  Dollar", style: const TextStyle(
+                                subtitle: Text(
+                                  articleList[index].date ,
+                                  style: const TextStyle(
                                   color: Colors.white
                                 ),),
                                 trailing: CircleAvatar(
-                                  backgroundImage: NetworkImage(cryptoList[index].image),
+                                  backgroundImage: NetworkImage(articleList[index].image),
                                 ),
               
                               ),

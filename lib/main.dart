@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api/home/Article_page.dart';
 import 'package:flutter_api/home/Crypto_page.dart'; 
 import 'package:flutter_api/home/User_Page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,17 +36,20 @@ class _MyApiState extends State<MyApi> {
   final List<Widget> _tabs = [
     const UserApiPage(),
     const CryptoApiPage(),
-    const ProfileScreen(),
+    const ArticleApiPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bottom Navigation'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('API'),
+      //   backgroundColor: Colors.indigo[300],
+      // ),
       body: _tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        // backgroundColor: Colors.indigo[300],
+        backgroundColor: Colors.blue[300],
         currentIndex: _currentIndex,
         onTap: (int index) {
           setState(() {
@@ -62,22 +66,12 @@ class _MyApiState extends State<MyApi> {
             label: 'CryptoApi',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.article_rounded),
+            label: 'ArticleApi',
           ),
         ],
+        
       ),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Profile Screen'),
     );
   }
 }

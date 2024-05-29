@@ -1,10 +1,7 @@
-// import 'dart:convert';
 
-// import 'package:flutter/foundation.dart';
 
 class UserModel {
   final int id;
-  // final String id;
   final String email;
   final String firstname;
   final String lastname;
@@ -22,10 +19,8 @@ class UserModel {
     return UserModel(
         id: json['id'],
         email: json['email'],
-        // firstname: json['first_name'] ?? 'First name',
         firstname: json['first_name'],
         lastname: json['last_name'],
-        // lastname: json['last_name'] ?? 'last name',
         avatar: json['avatar'] ??
             'https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=740');
   }
