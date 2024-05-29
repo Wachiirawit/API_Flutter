@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api/home/my_home.dart';
+import 'package:flutter_api/home/Crypto_page.dart'; 
+import 'package:flutter_api/home/User_Page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-  // runApp(ProviderScope(child: MyApp()));
 
 void main() => runApp(const ProviderScope(child: MyApp()));
 
@@ -12,10 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Bottom Navigation Demo',
+      title: 'MyApi',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
+
       home: const MyApi(),
     );
   }
@@ -29,11 +29,12 @@ class MyApi extends StatefulWidget {
 }
 
 class _MyApiState extends State<MyApi> {
+  // int _currentIndex = 0;
   int _currentIndex = 0;
 
   final List<Widget> _tabs = [
-    const MyHomePage(),
-    const FavoritesScreen(),
+    const UserApiPage(),
+    const CryptoApiPage(),
     const ProfileScreen(),
   ];
 
@@ -57,8 +58,8 @@ class _MyApiState extends State<MyApi> {
             label: 'UserApi',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            icon: Icon(Icons.monetization_on),
+            label: 'CryptoApi',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -66,28 +67,6 @@ class _MyApiState extends State<MyApi> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen'),
-    );
-  }
-}
-
-class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Favorites Screen'),
     );
   }
 }

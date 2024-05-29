@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api/dataprovider/data_provider.dart';
 import 'package:flutter_api/models/user_model.dart';
-import 'package:flutter_api/screens/detail_screen.dart';
+import 'package:flutter_api/screens/User_Detail_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:riverpod/riverpod.dart';
 
-class MyHomePage extends ConsumerWidget {
-  const MyHomePage({super.key});
+class UserApiPage extends ConsumerWidget {
+  const UserApiPage({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
@@ -30,7 +29,7 @@ class MyHomePage extends ConsumerWidget {
                             return InkWell(
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => DetailScreen(
+                                  builder: (context) => UserDetailScreen(
                                     e: userList[index],
                                     ),
                                     ),

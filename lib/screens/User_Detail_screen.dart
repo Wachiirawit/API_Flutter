@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api/models/user_model.dart';
 
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key, required this.e});
+class UserDetailScreen extends StatelessWidget {
+  const UserDetailScreen({super.key, required this.e});
   final UserModel e;
 
   @override
